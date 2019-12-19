@@ -1,0 +1,58 @@
+button_1.addEventListener(MouseEvent.CLICK, fl_ClickToGoToScene);
+
+function fl_ClickToGoToScene(event:MouseEvent):void
+{
+	MovieClip(this.root).gotoAndPlay(1, "场景 2");
+}
+stop();
+button_2.addEventListener(MouseEvent.CLICK, fl_ClickToGoToScene_2);
+
+function fl_ClickToGoToScene_2(event:MouseEvent):void
+{
+	MovieClip(this.root).gotoAndPlay(1, "场景 3");
+}
+stop();
+button_3.addEventListener(MouseEvent.CLICK, fl_ClickToGoToScene_3);
+
+function fl_ClickToGoToScene_3(event:MouseEvent):void
+{
+	MovieClip(this.root).gotoAndPlay(1, "场景 5");
+}
+
+
+/* 滑动以转到下/上一场景并播放
+滑动舞台会将播放头移动到时间轴中的下/上一场景并在此场景中继续播放。
+*/
+
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+stage.addEventListener (TransformGestureEvent.GESTURE_SWIPE, fl_SwipeToGoToNextPreviousScene);
+
+function fl_SwipeToGoToNextPreviousScene(event:TransformGestureEvent):void
+{
+	
+	 if(event.offsetX == -1)
+	{
+		// 向左滑动
+		nextScene();
+	}
+}
+stop();
+Multitouch.inputMode = MultitouchInputMode.GESTURE;
+
+stage.addEventListener (TransformGestureEvent.GESTURE_SWIPE, fl_SwipeToGoToNextPreviousScene_2);
+
+function fl_SwipeToGoToNextPreviousScene_2(event:TransformGestureEvent):void
+{
+	if(event.offsetX == 1)
+	{
+		// 向右滑动
+		prevScene();
+	}
+	else if(event.offsetX == -1)
+	{
+		// 向左滑动
+		nextScene();
+	}
+}
+
